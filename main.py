@@ -1,7 +1,3 @@
-# Create a tic-tac-toe game.
-from tkinter import X
-
-
 def sum(a, b, c):
     return a + b + c
 
@@ -42,12 +38,18 @@ if __name__ == "__main__":
         printboard(xstate, ostate)
         if(turn == 1):
             print("X's turn.")
-            value = int(input('Enter a value : '))
-            xstate[value] = 1
+            try:
+                value = int(input('Enter a value : '))
+                xstate[value] = 1
+            except Exception as e:
+                print("Please enter a valid number.")
         else:
             print("O's turn.")
-            value = int(input("Enter a value : "))
-            ostate[value] = 1
+            try:
+                value = int(input("Enter a value : "))
+                ostate[value] = 1
+            except Exception as e:
+                print("Please enter a valid number.")
         c = checkwin(xstate, ostate)
         if(c != -1):
             print("Match over.")
